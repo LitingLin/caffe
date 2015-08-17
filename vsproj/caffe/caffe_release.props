@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <BOOST_DIR>$(SolutionDir)\dependencies\boost\</BOOST_DIR>
+    <CUDNN_DIR>$(SolutionDir)\dependencies\cudnn\</CUDNN_DIR>
+    <GFLAGS_DIR>$(SolutionDir)\dependencies\gflags\</GFLAGS_DIR>
+    <GLOG_DIR>$(SolutionDir)\dependencies\glog\</GLOG_DIR>
+    <HDF5_DIR>$(SolutionDir)\dependencies\hdf5\</HDF5_DIR>
+    <LMDB_DIR>$(SolutionDir)\dependencies\lmdb\</LMDB_DIR>
+    <OPENCV_DIR>$(SolutionDir)\dependencies\opencv\</OPENCV_DIR>
+    <PROTOBUF_DIR>$(SolutionDir)\dependencies\protobuf\</PROTOBUF_DIR>
+    <SNAPPY_DIR>$(SolutionDir)\dependencies\snappy\</SNAPPY_DIR>
+    <LEVELDB_DIR>$(SolutionDir)\dependencies\leveldb\</LEVELDB_DIR>
+    <GTEST_DIR>$(SolutionDir)\dependencies\gtest\</GTEST_DIR>
+    <PYTHON_DIR>D:\dev\Python34\</PYTHON_DIR>
+    <NUMPY_DIR>$(PYTHON_DIR)Lib\site-packages\numpy\</NUMPY_DIR>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LocalDebuggerEnvironment>PATH=%PATH%;$(BOOST_DIR)bin;$(PROTOBUF_DIR)bin\release;$(CUDNN_DIR)bin;$(GFLAGS_DIR)bin\release;$(GLOG_DIR)bin\release;$(HDF5_DIR)bin;$(LEVELDB_DIR)bin\release;$(LMDB_DIR)bin\release;$(OPENCV_DIR)bin;$(SNAPPY_DIR)bin;$(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <UseIntelMKL>Parallel</UseIntelMKL>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile />
+    <Link>
+      <AdditionalLibraryDirectories>$(BOOST_DIR)lib;$(CUDNN_DIR)lib;$(GFLAGS_DIR)lib\release;$(GLOG_DIR)lib\release;$(HDF5_DIR)lib;$(LEVELDB_DIR)lib\release;$(LMDB_DIR)lib\release;$(OPENCV_DIR)lib;$(PROTOBUF_DIR)lib\release;$(SNAPPY_DIR)lib\release;$(GTEST_DIR)lib\release;$(PYTHON_DIR)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <Additionaldependencies>libboost_thread-vc120-mt-1_58.lib;libboost_chrono-vc120-mt-1_58.lib;libboost_date_time-vc120-mt-1_58.lib;libboost_system-vc120-mt-1_58.lib;python34.lib;cudnn.lib;gflags.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;leveldb.lib;liblmdb.lib;opencv_world300.lib;libprotobuf.lib;snappy.lib;gtest.lib;%(Additionaldependencies)</Additionaldependencies>
+    </Link>
+    <CudaCompile>
+      <AdditionalCompilerOptions>/FS</AdditionalCompilerOptions>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="BOOST_DIR">
+      <Value>$(BOOST_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="CUDNN_DIR">
+      <Value>$(CUDNN_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="GFLAGS_DIR">
+      <Value>$(GFLAGS_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="GLOG_DIR">
+      <Value>$(GLOG_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="HDF5_DIR">
+      <Value>$(HDF5_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="LMDB_DIR">
+      <Value>$(LMDB_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="OPENCV_DIR">
+      <Value>$(OPENCV_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="PROTOBUF_DIR">
+      <Value>$(PROTOBUF_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SNAPPY_DIR">
+      <Value>$(SNAPPY_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="LEVELDB_DIR">
+      <Value>$(LEVELDB_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="GTEST_DIR">
+      <Value>$(GTEST_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="PYTHON_DIR">
+      <Value>$(PYTHON_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="NUMPY_DIR">
+      <Value>$(NUMPY_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

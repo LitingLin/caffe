@@ -22,7 +22,7 @@ namespace caffe {
  *        element.
  */
 template <typename Dtype>
-class NeuronLayer : public Layer<Dtype> {
+class CAFFE_EXPORT NeuronLayer : public Layer<Dtype> {
  public:
   explicit NeuronLayer(const LayerParameter& param)
      : Layer<Dtype>(param) {}
@@ -44,7 +44,7 @@ class NeuronLayer : public Layer<Dtype> {
  *      the computed outputs @f$ y = |x| @f$
  */
 template <typename Dtype>
-class AbsValLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT AbsValLayer : public NeuronLayer<Dtype> {
  public:
   explicit AbsValLayer(const LayerParameter& param)
       : NeuronLayer<Dtype>(param) {}
@@ -103,7 +103,7 @@ class AbsValLayer : public NeuronLayer<Dtype> {
  *      @f$
  */
 template <typename Dtype>
-class BNLLLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT BNLLLayer : public NeuronLayer<Dtype> {
  public:
   explicit BNLLLayer(const LayerParameter& param)
       : NeuronLayer<Dtype>(param) {}
@@ -151,7 +151,7 @@ class BNLLLayer : public NeuronLayer<Dtype> {
  *      the computed outputs @f$ y = |x| @f$
  */
 template <typename Dtype>
-class DropoutLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT DropoutLayer : public NeuronLayer<Dtype> {
  public:
   /**
    * @param param provides DropoutParameter dropout_param,
@@ -209,7 +209,7 @@ class DropoutLayer : public NeuronLayer<Dtype> {
  *        and base @f$ \gamma @f$.
  */
 template <typename Dtype>
-class ExpLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT ExpLayer : public NeuronLayer<Dtype> {
  public:
   /**
    * @param param provides ExpParameter exp_param,
@@ -273,7 +273,7 @@ class ExpLayer : public NeuronLayer<Dtype> {
  *        and base @f$ \gamma @f$.
  */
 template <typename Dtype>
-class LogLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT LogLayer : public NeuronLayer<Dtype> {
  public:
   /**
    * @param param provides LogParameter log_param,
@@ -339,7 +339,7 @@ class LogLayer : public NeuronLayer<Dtype> {
  *        and power @f$ \gamma @f$.
  */
 template <typename Dtype>
-class PowerLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT PowerLayer : public NeuronLayer<Dtype> {
  public:
   /**
    * @param param provides PowerParameter power_param,
@@ -411,7 +411,7 @@ class PowerLayer : public NeuronLayer<Dtype> {
  *        The simple max is fast to compute, and the function does not saturate.
  */
 template <typename Dtype>
-class ReLULayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT ReLULayer : public NeuronLayer<Dtype> {
  public:
   /**
    * @param param provides ReLUParameter relu_param,
@@ -480,7 +480,7 @@ class ReLULayer : public NeuronLayer<Dtype> {
  * @brief CuDNN acceleration of ReLULayer.
  */
 template <typename Dtype>
-class CuDNNReLULayer : public ReLULayer<Dtype> {
+class CAFFE_EXPORT CuDNNReLULayer : public ReLULayer<Dtype> {
  public:
   explicit CuDNNReLULayer(const LayerParameter& param)
       : ReLULayer<Dtype>(param), handles_setup_(false) {}
@@ -512,7 +512,7 @@ class CuDNNReLULayer : public ReLULayer<Dtype> {
  * The ReLULayer is often a better choice for this reason.
  */
 template <typename Dtype>
-class SigmoidLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT SigmoidLayer : public NeuronLayer<Dtype> {
  public:
   explicit SigmoidLayer(const LayerParameter& param)
       : NeuronLayer<Dtype>(param) {}
@@ -563,7 +563,7 @@ class SigmoidLayer : public NeuronLayer<Dtype> {
  * @brief CuDNN acceleration of SigmoidLayer.
  */
 template <typename Dtype>
-class CuDNNSigmoidLayer : public SigmoidLayer<Dtype> {
+class CAFFE_EXPORT CuDNNSigmoidLayer : public SigmoidLayer<Dtype> {
  public:
   explicit CuDNNSigmoidLayer(const LayerParameter& param)
       : SigmoidLayer<Dtype>(param), handles_setup_(false) {}
@@ -595,7 +595,7 @@ class CuDNNSigmoidLayer : public SigmoidLayer<Dtype> {
  * The ReLULayer is often a better choice for this reason.
  */
 template <typename Dtype>
-class TanHLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT TanHLayer : public NeuronLayer<Dtype> {
  public:
   explicit TanHLayer(const LayerParameter& param)
       : NeuronLayer<Dtype>(param) {}
@@ -648,7 +648,7 @@ class TanHLayer : public NeuronLayer<Dtype> {
  * @brief CuDNN acceleration of TanHLayer.
  */
 template <typename Dtype>
-class CuDNNTanHLayer : public TanHLayer<Dtype> {
+class CAFFE_EXPORT CuDNNTanHLayer : public TanHLayer<Dtype> {
  public:
   explicit CuDNNTanHLayer(const LayerParameter& param)
       : TanHLayer<Dtype>(param), handles_setup_(false) {}
@@ -676,7 +676,7 @@ class CuDNNTanHLayer : public TanHLayer<Dtype> {
  *        above threshold; 0 otherwise.
  */
 template <typename Dtype>
-class ThresholdLayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT ThresholdLayer : public NeuronLayer<Dtype> {
  public:
   /**
    * @param param provides ThresholdParameter threshold_param,
@@ -728,7 +728,7 @@ class ThresholdLayer : public NeuronLayer<Dtype> {
  *        equal to 2. The 1st axis (0-based) is seen as channels.
  */
 template <typename Dtype>
-class PReLULayer : public NeuronLayer<Dtype> {
+class CAFFE_EXPORT PReLULayer : public NeuronLayer<Dtype> {
  public:
   /**
    * @param param provides PReLUParameter prelu_param,

@@ -21,7 +21,7 @@ namespace caffe {
  *        ConvolutionLayer and DeconvolutionLayer.
  */
 template <typename Dtype>
-class BaseConvolutionLayer : public Layer<Dtype> {
+class CAFFE_EXPORT BaseConvolutionLayer : public Layer<Dtype> {
  public:
   explicit BaseConvolutionLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -128,7 +128,7 @@ class BaseConvolutionLayer : public Layer<Dtype> {
  *   the output channel N' columns of the output matrix.
  */
 template <typename Dtype>
-class ConvolutionLayer : public BaseConvolutionLayer<Dtype> {
+class CAFFE_EXPORT ConvolutionLayer : public BaseConvolutionLayer<Dtype> {
  public:
   /**
    * @param param provides ConvolutionParameter convolution_param,
@@ -191,7 +191,7 @@ class ConvolutionLayer : public BaseConvolutionLayer<Dtype> {
  *   stride results in upsampling rather than downsampling).
  */
 template <typename Dtype>
-class DeconvolutionLayer : public BaseConvolutionLayer<Dtype> {
+class CAFFE_EXPORT DeconvolutionLayer : public BaseConvolutionLayer<Dtype> {
  public:
   explicit DeconvolutionLayer(const LayerParameter& param)
       : BaseConvolutionLayer<Dtype>(param) {}
@@ -227,7 +227,7 @@ class DeconvolutionLayer : public BaseConvolutionLayer<Dtype> {
  * faster as long as it fits in memory.
 */
 template <typename Dtype>
-class CuDNNConvolutionLayer : public ConvolutionLayer<Dtype> {
+class CAFFE_EXPORT CuDNNConvolutionLayer : public ConvolutionLayer<Dtype> {
  public:
   explicit CuDNNConvolutionLayer(const LayerParameter& param)
       : ConvolutionLayer<Dtype>(param), handles_setup_(false) {}
@@ -264,7 +264,7 @@ class CuDNNConvolutionLayer : public ConvolutionLayer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class Im2colLayer : public Layer<Dtype> {
+class CAFFE_EXPORT Im2colLayer : public Layer<Dtype> {
  public:
   explicit Im2colLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -304,7 +304,7 @@ template <typename Dtype> class SplitLayer;
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class LRNLayer : public Layer<Dtype> {
+class CAFFE_EXPORT LRNLayer : public Layer<Dtype> {
  public:
   explicit LRNLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -380,7 +380,7 @@ class LRNLayer : public Layer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class PoolingLayer : public Layer<Dtype> {
+class CAFFE_EXPORT PoolingLayer : public Layer<Dtype> {
  public:
   explicit PoolingLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -426,7 +426,7 @@ class PoolingLayer : public Layer<Dtype> {
  *        Fallback to PoolingLayer for CPU mode.
 */
 template <typename Dtype>
-class CuDNNPoolingLayer : public PoolingLayer<Dtype> {
+class CAFFE_EXPORT CuDNNPoolingLayer : public PoolingLayer<Dtype> {
  public:
   explicit CuDNNPoolingLayer(const LayerParameter& param)
       : PoolingLayer<Dtype>(param), handles_setup_(false) {}
@@ -460,7 +460,7 @@ class CuDNNPoolingLayer : public PoolingLayer<Dtype> {
  *        images are of the same size.
  */
 template <typename Dtype>
-class SPPLayer : public Layer<Dtype> {
+class CAFFE_EXPORT SPPLayer : public Layer<Dtype> {
  public:
   explicit SPPLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}

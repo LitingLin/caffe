@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <BOOST_DIR>$(SolutionDir)\dependencies\boost\</BOOST_DIR>
+    <CUDNN_DIR>$(SolutionDir)\dependencies\cudnn\</CUDNN_DIR>
+    <GFLAGS_DIR>$(SolutionDir)\dependencies\gflags\</GFLAGS_DIR>
+    <GLOG_DIR>$(SolutionDir)\dependencies\glog\</GLOG_DIR>
+    <HDF5_DIR>$(SolutionDir)\dependencies\hdf5\</HDF5_DIR>
+    <LMDB_DIR>$(SolutionDir)\dependencies\lmdb\</LMDB_DIR>
+    <OPENCV_DIR>$(SolutionDir)\dependencies\opencv\</OPENCV_DIR>
+    <PROTOBUF_DIR>$(SolutionDir)\dependencies\protobuf\</PROTOBUF_DIR>
+    <SNAPPY_DIR>$(SolutionDir)\dependencies\snappy\</SNAPPY_DIR>
+    <LEVELDB_DIR>$(SolutionDir)\dependencies\leveldb\</LEVELDB_DIR>
+    <GTEST_DIR>$(SolutionDir)\dependencies\gtest\</GTEST_DIR>
+    <PYTHON_DIR>D:\dev\Python34\</PYTHON_DIR>
+    <NUMPY_DIR>$(PYTHON_DIR)Lib\site-packages\numpy\</NUMPY_DIR>
+    <CAFFE_DIR>$(SolutionDir)..\</CAFFE_DIR>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile />
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(BOOST_DIR)include;$(CUDNN_DIR)include;$(GFLAGS_DIR)include;$(GLOG_DIR)include;$(HDF5_DIR)include;$(LEVELDB_DIR)include;$(LMDB_DIR)include;$(OPENCV_DIR)include;$(PROTOBUF_DIR)include;$(SNAPPY_DIR)include;$(GTEST_DIR)include;$(PYTHON_DIR)include;$(NUMPY_DIR)core\include;$(SolutionDir)posix_compatible;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;USE_CUDNN;USE_MKL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>cublas.lib;curand.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="BOOST_DIR">
+      <Value>$(BOOST_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="CUDNN_DIR">
+      <Value>$(CUDNN_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="GFLAGS_DIR">
+      <Value>$(GFLAGS_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="GLOG_DIR">
+      <Value>$(GLOG_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="HDF5_DIR">
+      <Value>$(HDF5_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="LMDB_DIR">
+      <Value>$(LMDB_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="OPENCV_DIR">
+      <Value>$(OPENCV_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="PROTOBUF_DIR">
+      <Value>$(PROTOBUF_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SNAPPY_DIR">
+      <Value>$(SNAPPY_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="LEVELDB_DIR">
+      <Value>$(LEVELDB_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="GTEST_DIR">
+      <Value>$(GTEST_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="PYTHON_DIR">
+      <Value>$(PYTHON_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="NUMPY_DIR">
+      <Value>$(NUMPY_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="CAFFE_DIR">
+      <Value>$(CAFFE_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

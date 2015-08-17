@@ -41,7 +41,7 @@ inline void CaffeFreeHost(void* ptr) {
  *
  * TODO(dox): more thorough description.
  */
-class SyncedMemory {
+class CAFFE_EXPORT SyncedMemory {
  public:
   SyncedMemory()
       : cpu_ptr_(NULL), gpu_ptr_(NULL), size_(0), head_(UNINITIALIZED),

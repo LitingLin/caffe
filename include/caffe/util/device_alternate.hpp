@@ -40,6 +40,8 @@ void classname<Dtype>::funcname##_##gpu(const vector<Blob<Dtype>*>& top, \
 #include "caffe/util/cudnn.hpp"
 #endif
 
+#include "caffe/export_macro.h"
+
 //
 // CUDA macros
 //
@@ -78,8 +80,8 @@ void classname<Dtype>::funcname##_##gpu(const vector<Blob<Dtype>*>& top, \
 namespace caffe {
 
 // CUDA: library error reporting.
-const char* cublasGetErrorString(cublasStatus_t error);
-const char* curandGetErrorString(curandStatus_t error);
+CAFFE_EXPORT const char* cublasGetErrorString(cublasStatus_t error);
+CAFFE_EXPORT const char* curandGetErrorString(curandStatus_t error);
 
 // CUDA: thread number configuration.
 // Use 1024 threads per block, which requires cuda sm_2x or above,

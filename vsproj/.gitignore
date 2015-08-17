@@ -1,0 +1,26 @@
+# Compiled Output
+*.dll
+*.lib
+*.ilk
+*.exp
+*.pdb
+
+#Compiled Objects
+*.obj
+*.cache
+*.ib_pdb_index
+
+# Compiler Intermediates
+*.log
+*.tlog
+*.lastbuildstate
+*.bak
+*.idb
+
+# Visual Studio Intermediates
+*.opensdf
+*.sdf
+*.deps
+*.suo
+
+dependencies

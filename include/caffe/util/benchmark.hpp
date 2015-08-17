@@ -4,10 +4,11 @@
 #include <boost/date_time/posix_time/posix_time.hpp>
 
 #include "caffe/util/device_alternate.hpp"
+#include "caffe/export_macro.h"
 
 namespace caffe {
 
-class Timer {
+class CAFFE_EXPORT Timer {
  public:
   Timer();
   virtual ~Timer();

@@ -46,7 +46,7 @@ DISABLE_COPY_AND_ASSIGN(Params);
 
 // Params stored in GPU memory.
 template<typename Dtype>
-class GPUParams : public Params<Dtype> {
+class CAFFE_EXPORT GPUParams : public Params<Dtype> {
  public:
   GPUParams(shared_ptr<Solver<Dtype> > root_solver, int device);
   virtual ~GPUParams();
@@ -82,7 +82,7 @@ class DevicePair {
 
 // Synchronous data parallelism using map-reduce between local GPUs.
 template<typename Dtype>
-class P2PSync : public GPUParams<Dtype>, public Solver<Dtype>::Callback,
+class CAFFE_EXPORT P2PSync : public GPUParams<Dtype>, public Solver<Dtype>::Callback,
     public InternalThread {
  public:
   explicit P2PSync(shared_ptr<Solver<Dtype> > root_solver,

@@ -20,7 +20,7 @@ const float kLOG_THRESHOLD = 1e-20;
  *        classification task.
  */
 template <typename Dtype>
-class AccuracyLayer : public Layer<Dtype> {
+class CAFFE_EXPORT AccuracyLayer : public Layer<Dtype> {
  public:
   /**
    * @param param provides AccuracyParameter accuracy_param,
@@ -97,7 +97,7 @@ class AccuracyLayer : public Layer<Dtype> {
  * -- the predictions.
  */
 template <typename Dtype>
-class LossLayer : public Layer<Dtype> {
+class CAFFE_EXPORT LossLayer : public Layer<Dtype> {
  public:
   explicit LossLayer(const LayerParameter& param)
      : Layer<Dtype>(param) {}
@@ -150,7 +150,7 @@ class LossLayer : public Layer<Dtype> {
  * This can be used to train siamese networks.
  */
 template <typename Dtype>
-class ContrastiveLossLayer : public LossLayer<Dtype> {
+class CAFFE_EXPORT ContrastiveLossLayer : public LossLayer<Dtype> {
  public:
   explicit ContrastiveLossLayer(const LayerParameter& param)
       : LossLayer<Dtype>(param), diff_() {}
@@ -237,7 +237,7 @@ class ContrastiveLossLayer : public LossLayer<Dtype> {
  * linear least squares problems! We use it only as an instructive example.)
  */
 template <typename Dtype>
-class EuclideanLossLayer : public LossLayer<Dtype> {
+class CAFFE_EXPORT EuclideanLossLayer : public LossLayer<Dtype> {
  public:
   explicit EuclideanLossLayer(const LayerParameter& param)
       : LossLayer<Dtype>(param), diff_() {}
@@ -345,7 +345,7 @@ class EuclideanLossLayer : public LossLayer<Dtype> {
  * HingeLossLayer).
  */
 template <typename Dtype>
-class HingeLossLayer : public LossLayer<Dtype> {
+class CAFFE_EXPORT HingeLossLayer : public LossLayer<Dtype> {
  public:
   explicit HingeLossLayer(const LayerParameter& param)
       : LossLayer<Dtype>(param) {}
@@ -421,7 +421,7 @@ class HingeLossLayer : public LossLayer<Dtype> {
  *      @f$, where @f$ H_{l_n} @f$ denotes row @f$l_n@f$ of @f$H@f$.
  */
 template <typename Dtype>
-class InfogainLossLayer : public LossLayer<Dtype> {
+class CAFFE_EXPORT InfogainLossLayer : public LossLayer<Dtype> {
  public:
   explicit InfogainLossLayer(const LayerParameter& param)
       : LossLayer<Dtype>(param), infogain_() {}
@@ -512,7 +512,7 @@ class InfogainLossLayer : public LossLayer<Dtype> {
  *      @f$
  */
 template <typename Dtype>
-class MultinomialLogisticLossLayer : public LossLayer<Dtype> {
+class CAFFE_EXPORT MultinomialLogisticLossLayer : public LossLayer<Dtype> {
  public:
   explicit MultinomialLogisticLossLayer(const LayerParameter& param)
       : LossLayer<Dtype>(param) {}
@@ -588,7 +588,7 @@ class MultinomialLogisticLossLayer : public LossLayer<Dtype> {
  *      @f$
  */
 template <typename Dtype>
-class SigmoidCrossEntropyLossLayer : public LossLayer<Dtype> {
+class CAFFE_EXPORT SigmoidCrossEntropyLossLayer : public LossLayer<Dtype> {
  public:
   explicit SigmoidCrossEntropyLossLayer(const LayerParameter& param)
       : LossLayer<Dtype>(param),
@@ -683,7 +683,7 @@ template <typename Dtype> class SoftmaxLayer;
  *      @f$, for softmax output class probabilites @f$ \hat{p} @f$
  */
 template <typename Dtype>
-class SoftmaxWithLossLayer : public LossLayer<Dtype> {
+class CAFFE_EXPORT SoftmaxWithLossLayer : public LossLayer<Dtype> {
  public:
    /**
     * @param param provides LossParameter loss_param, with options:

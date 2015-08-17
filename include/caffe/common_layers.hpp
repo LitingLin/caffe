@@ -26,7 +26,7 @@ namespace caffe {
  * NOTE: does not implement Backwards operation.
  */
 template <typename Dtype>
-class ArgMaxLayer : public Layer<Dtype> {
+class CAFFE_EXPORT ArgMaxLayer : public Layer<Dtype> {
  public:
   /**
    * @param param provides ArgMaxParameter argmax_param,
@@ -75,7 +75,7 @@ class ArgMaxLayer : public Layer<Dtype> {
  *        or channel dimension, outputting the result.
  */
 template <typename Dtype>
-class ConcatLayer : public Layer<Dtype> {
+class CAFFE_EXPORT ConcatLayer : public Layer<Dtype> {
  public:
   explicit ConcatLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -150,7 +150,7 @@ class ConcatLayer : public Layer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class EltwiseLayer : public Layer<Dtype> {
+class CAFFE_EXPORT EltwiseLayer : public Layer<Dtype> {
  public:
   explicit EltwiseLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -187,7 +187,7 @@ class EltwiseLayer : public Layer<Dtype> {
  * item needs to stay).
  */
 template <typename Dtype>
-class FilterLayer : public Layer<Dtype> {
+class CAFFE_EXPORT FilterLayer : public Layer<Dtype> {
  public:
   explicit FilterLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -254,7 +254,7 @@ class FilterLayer : public Layer<Dtype> {
  * (see Blob::ShareDiff).
  */
 template <typename Dtype>
-class FlattenLayer : public Layer<Dtype> {
+class CAFFE_EXPORT FlattenLayer : public Layer<Dtype> {
  public:
   explicit FlattenLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -297,7 +297,7 @@ class FlattenLayer : public Layer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class InnerProductLayer : public Layer<Dtype> {
+class CAFFE_EXPORT InnerProductLayer : public Layer<Dtype> {
  public:
   explicit InnerProductLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -333,7 +333,7 @@ class InnerProductLayer : public Layer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class MVNLayer : public Layer<Dtype> {
+class CAFFE_EXPORT MVNLayer : public Layer<Dtype> {
  public:
   explicit MVNLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -368,7 +368,7 @@ class MVNLayer : public Layer<Dtype> {
  * (see FlattenLayer, Blob::ShareData and Blob::ShareDiff).
  */
 template <typename Dtype>
-class ReshapeLayer : public Layer<Dtype> {
+class CAFFE_EXPORT ReshapeLayer : public Layer<Dtype> {
  public:
   explicit ReshapeLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -407,7 +407,7 @@ class ReshapeLayer : public Layer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class ReductionLayer : public Layer<Dtype> {
+class CAFFE_EXPORT ReductionLayer : public Layer<Dtype> {
  public:
   explicit ReductionLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -449,7 +449,7 @@ class ReductionLayer : public Layer<Dtype> {
  *        to suppress outputs during testing.)
  */
 template <typename Dtype>
-class SilenceLayer : public Layer<Dtype> {
+class CAFFE_EXPORT SilenceLayer : public Layer<Dtype> {
  public:
   explicit SilenceLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -479,7 +479,7 @@ class SilenceLayer : public Layer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class SoftmaxLayer : public Layer<Dtype> {
+class CAFFE_EXPORT SoftmaxLayer : public Layer<Dtype> {
  public:
   explicit SoftmaxLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -515,7 +515,7 @@ class SoftmaxLayer : public Layer<Dtype> {
  *        Fallback to SoftmaxLayer for CPU mode.
  */
 template <typename Dtype>
-class CuDNNSoftmaxLayer : public SoftmaxLayer<Dtype> {
+class CAFFE_EXPORT CuDNNSoftmaxLayer : public SoftmaxLayer<Dtype> {
  public:
   explicit CuDNNSoftmaxLayer(const LayerParameter& param)
       : SoftmaxLayer<Dtype>(param), handles_setup_(false) {}
@@ -545,7 +545,7 @@ class CuDNNSoftmaxLayer : public SoftmaxLayer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class SplitLayer : public Layer<Dtype> {
+class CAFFE_EXPORT SplitLayer : public Layer<Dtype> {
  public:
   explicit SplitLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}
@@ -576,7 +576,7 @@ class SplitLayer : public Layer<Dtype> {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-class SliceLayer : public Layer<Dtype> {
+class CAFFE_EXPORT SliceLayer : public Layer<Dtype> {
  public:
   explicit SliceLayer(const LayerParameter& param)
       : Layer<Dtype>(param) {}

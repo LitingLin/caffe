@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7749F78B-A65E-40F3-9C35-3F85454B07CA}</ProjectGuid>
+    <RootNamespace>proto</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\caffe\caffe_base.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\caffe\caffe_base.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\caffe\proto\caffe.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+mkdir $(CAFFE_DIR)include\caffe\proto
+$(PROTOBUF_DIR)bin\release\protoc --cpp_out=dllexport_decl=CAFFE_EXPORT:$(CAFFE_DIR)include/caffe/proto -I $(CAFFE_DIR)src/caffe/proto $(CAFFE_DIR)src/caffe/proto/caffe.proto
+if %errorlevel% neq 0 goto :cmEnd
+copy $(CAFFE_DIR)include\caffe\export_macro.h + $(CAFFE_DIR)include\caffe\proto\caffe.pb.h $(CAFFE_DIR)include\caffe\proto\caffe.pb.h.tmp
+if %errorlevel% neq 0 goto :cmEnd
+del $(CAFFE_DIR)include\caffe\proto\caffe.pb.h
+if %errorlevel% neq 0 goto :cmEnd
+rename $(CAFFE_DIR)include\caffe\proto\caffe.pb.h.tmp caffe.pb.h
+if %errorlevel% neq 0 goto :cmEnd
+$(PROTOBUF_DIR)bin\release\protoc --python_out $(CAFFE_DIR)include/caffe/proto -I $(CAFFE_DIR)src/caffe/proto $(CAFFE_DIR)src/caffe/proto/caffe.proto
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Running C++/Python protocol buffer compiler on src/caffe/proto/caffe.proto</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(CAFFE_DIR)include\caffe\proto\caffe.pb.cc;$(CAFFE_DIR)include\caffe\proto\caffe.pb.h;$(CAFFE_DIR)include\caffe\proto\caffe_pb2.py;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(CAFFE_DIR)src/caffe/proto/caffe.proto</AdditionalInputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+mkdir $(CAFFE_DIR)include\caffe\proto
+$(PROTOBUF_DIR)bin\release\protoc --cpp_out=dllexport_decl=CAFFE_EXPORT:$(CAFFE_DIR)include/caffe/proto -I $(CAFFE_DIR)src/caffe/proto $(CAFFE_DIR)src/caffe/proto/caffe.proto
+if %errorlevel% neq 0 goto :cmEnd
+copy $(CAFFE_DIR)include\caffe\export_macro.h + $(CAFFE_DIR)include\caffe\proto\caffe.pb.h $(CAFFE_DIR)include\caffe\proto\caffe.pb.h.tmp
+if %errorlevel% neq 0 goto :cmEnd
+del $(CAFFE_DIR)include\caffe\proto\caffe.pb.h
+if %errorlevel% neq 0 goto :cmEnd
+rename $(CAFFE_DIR)include\caffe\proto\caffe.pb.h.tmp caffe.pb.h
+if %errorlevel% neq 0 goto :cmEnd
+$(PROTOBUF_DIR)bin\release\protoc --python_out $(CAFFE_DIR)include/caffe/proto -I $(CAFFE_DIR)src/caffe/proto $(CAFFE_DIR)src/caffe/proto/caffe.proto
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Running C++/Python protocol buffer compiler on src/caffe/proto/caffe.proto</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(CAFFE_DIR)include\caffe\proto\caffe.pb.cc;$(CAFFE_DIR)include\caffe\proto\caffe.pb.h;$(CAFFE_DIR)include\caffe\proto\caffe_pb2.py;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(CAFFE_DIR)src/caffe/proto/caffe.proto</AdditionalInputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
