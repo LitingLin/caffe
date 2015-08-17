@@ -4,6 +4,7 @@
 *.ilk
 *.exp
 *.pdb
+*.exe
 
 #Compiled Objects
 *.obj

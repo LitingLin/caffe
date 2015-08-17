@@ -13,9 +13,12 @@
 #include <process.h>
 #include <stdarg.h>
 #include <stdint.h>
-#include <io.h>
 #include <direct.h>
-#include <fcntl.h>
+#include <io.h>
+
+
+#include <glog/logging.h>
+
 #define snprintf _snprintf_s
 #define getpid _getpid
 #define __builtin_popcount __popcnt
@@ -25,14 +28,18 @@ typedef uint8_t mode_t;
 inline int mkdir(const char *pathname, mode_t mode) {
   return _mkdir(pathname);
 }
-namespace {
-class _on_program_startup {
+
+namespace caffe{
+int win32_genrandom(uint32_t len, void* buffer);
+
+class _global_object_initializer {
 public:
-  _on_program_startup() {
-    _set_fmode(_O_BINARY);
-  }
-}on_program_startup;
+  _global_object_initializer();
+  ~_global_object_initializer();
+};
 }
+
 typedef unsigned int uint;
+
 #endif
 #endif

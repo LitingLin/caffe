@@ -20,6 +20,11 @@ Caffe& Caffe::Get() {
 
 // random seeding
 int64_t cluster_seedgen(void) {
+#ifdef _MSC_VER
+  int64_t seed;
+  CHECK(win32_genrandom(sizeof(seed), &seed)) << "Random seed generation failed.";
+  return seed;
+#else
   int64_t s, seed, pid;
   FILE* f = fopen("/dev/urandom", "rb");
   if (f && fread(&seed, 1, sizeof(seed), f) == sizeof(seed)) {
@@ -36,6 +41,7 @@ int64_t cluster_seedgen(void) {
   s = time(NULL);
   seed = abs(((s * 181) * ((pid - 83) * 359)) % 104729);
   return seed;
+#endif
 }
 
 

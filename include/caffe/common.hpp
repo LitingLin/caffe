@@ -95,11 +95,11 @@ using std::vector;
 
 // A global initialization function that you should call in your main function.
 // Currently it initializes google flags and google logging.
-void GlobalInit(int* pargc, char*** pargv);
+CAFFE_EXPORT void GlobalInit(int* pargc, char*** pargv);
 
 // A singleton class to hold common caffe stuff, such as the handler that
 // caffe is going to use for cublas, curand, etc.
-class Caffe {
+class CAFFE_EXPORT Caffe {
  public:
   ~Caffe();
 
@@ -112,7 +112,7 @@ class Caffe {
 
   // This random number generator facade hides boost and CUDA rng
   // implementation from one another (for cross-platform compatibility).
-  class RNG {
+  class CAFFE_EXPORT RNG {
    public:
     RNG();
     explicit RNG(unsigned int seed);

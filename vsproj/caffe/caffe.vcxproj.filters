@@ -374,6 +374,9 @@
     <ClCompile Include="..\..\include\caffe\proto\caffe.pb.cc">
       <Filter>source\proto</Filter>
     </ClCompile>
+    <ClCompile Include="msvc_compatible.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="..\..\src\caffe\util\im2col.cu">
