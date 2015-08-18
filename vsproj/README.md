@@ -1,5 +1,13 @@
 # Visual Studio Projects for Caffe
 
+What works:
+- Nearly every thing, include lmdb backend
+- Shared library build
+
+What not works (Just because I doesn't need it currently):
+- Python interface
+- Matlab interface
+
 Requirements:
 - Visual Studio 2013
 - Cuda Toolkit 7.0 or upper (with VS integration)
