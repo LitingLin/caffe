@@ -22,7 +22,7 @@ Caffe& Caffe::Get() {
 int64_t cluster_seedgen(void) {
 #ifdef _MSC_VER
   int64_t seed;
-  CHECK(win32_genrandom(sizeof(seed), &seed)) << "Random seed generation failed.";
+  CHECK(win32_genrandom(sizeof(seed), &seed)) << "Random seed generation failed. Win32 error code: " << win32_getlasterror() << ".";
   return seed;
 #else
   int64_t s, seed, pid;

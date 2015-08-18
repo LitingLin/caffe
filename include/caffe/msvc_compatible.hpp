@@ -16,9 +16,6 @@
 #include <direct.h>
 #include <io.h>
 
-
-#include <glog/logging.h>
-
 #define snprintf _snprintf_s
 #define getpid _getpid
 #define __builtin_popcount __popcnt
@@ -31,15 +28,10 @@ inline int mkdir(const char *pathname, mode_t mode) {
 
 namespace caffe{
 int win32_genrandom(uint32_t len, void* buffer);
-
-class _global_object_initializer {
-public:
-  _global_object_initializer();
-  ~_global_object_initializer();
-};
+unsigned long win32_getlasterror();
 }
 
-typedef unsigned int uint;
+typedef uint32_t uint;
 
 #endif
 #endif

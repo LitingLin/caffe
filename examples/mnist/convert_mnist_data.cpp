@@ -20,6 +20,8 @@
 
 #include "caffe/proto/caffe.pb.h"
 
+#include "caffe/msvc_compatible.hpp"
+
 using namespace caffe;  // NOLINT(build/namespaces)
 using std::string;
 
