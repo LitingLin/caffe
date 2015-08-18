@@ -10,8 +10,9 @@ What not works (Just because I don't need it currently):
 
 Requirements:
 - Visual Studio 2013
-- Cuda Toolkit 7.0 or upper (with VS integration)
+- Cuda Toolkit 7.0 (with VS integration)
 - Intel Math Kernel Library (with VS integration)
+- Incredibuild 7.0 or upper (optional, to speed up the build procedure)
 
 Other dependencies:
 - Boost
