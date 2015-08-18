@@ -4,7 +4,7 @@ What works:
 - Nearly every thing, include lmdb backend
 - Shared library build
 
-What not works (Just because I doesn't need it currently):
+What not works (Just because I don't need it currently):
 - Python interface
 - Matlab interface
 
