@@ -30,7 +30,7 @@ inline void MakeTempFilename(string* temp_filename) {
 
 inline void MakeTempDir(string* temp_dirname) {
   temp_dirname->clear();
-  *temp_dirname = "%TEMP%/caffe_test." + string(tmpnam(nullptr));
+  *temp_dirname = temp_path_template + string(tmpnam(nullptr));
   int mkdtemp_result = mkdir(temp_dirname->c_str(), 0700);
   CHECK_EQ(mkdtemp_result, 0)
 	  << "Failed to create a temporary directory at: " << *temp_dirname << ". Error code: " << errno;
