@@ -24,4 +24,7 @@
 *.deps
 *.suo
 
+# Other stuff
+*.7z
+
 dependencies
