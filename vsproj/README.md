@@ -1,4 +1,4 @@
-# Visual Studio Project for Caffe
+# Visual Studio Projects for Caffe
 
 Requirements:
 - Visual Studio 2013
