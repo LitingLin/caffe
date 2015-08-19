@@ -28,9 +28,7 @@
       <AdditionalLibraryDirectories>$(BOOST_DIR)lib;$(CUDNN_DIR)lib;$(GFLAGS_DIR)lib\release;$(GLOG_DIR)lib\release;$(HDF5_DIR)lib;$(LEVELDB_DIR)lib\release;$(LMDB_DIR)lib\release;$(OPENCV_DIR)lib;$(PROTOBUF_DIR)lib\release;$(SNAPPY_DIR)lib\release;$(GTEST_DIR)lib\release;$(PYTHON_DIR)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <Additionaldependencies>libboost_thread-vc120-mt-1_58.lib;libboost_chrono-vc120-mt-1_58.lib;libboost_date_time-vc120-mt-1_58.lib;libboost_system-vc120-mt-1_58.lib;python34.lib;cudnn.lib;gflags.lib;libglog.lib;hdf5.lib;hdf5_hl.lib;leveldb.lib;liblmdb.lib;opencv_world300.lib;libprotobuf.lib;snappy.lib;gtest.lib;%(Additionaldependencies)</Additionaldependencies>
     </Link>
-    <CudaCompile>
-      <AdditionalCompilerOptions>/FS</AdditionalCompilerOptions>
-    </CudaCompile>
+    <CudaCompile />
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="BOOST_DIR">

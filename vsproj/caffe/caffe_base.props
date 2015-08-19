@@ -27,6 +27,10 @@
     <Link>
       <AdditionalDependencies>cublas.lib;curand.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <CodeGeneration>compute_20,sm_20;compute_30,sm_30;compute_50,sm_50;compute_52,sm_52</CodeGeneration>
+      <AdditionalCompilerOptions>/FS</AdditionalCompilerOptions>
+    </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="BOOST_DIR">
