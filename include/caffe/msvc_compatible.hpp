@@ -27,7 +27,6 @@ inline int mkdir(const char *pathname, mode_t mode) {
 }
 
 namespace caffe{
-int win32_genrandom(uint32_t len, void* buffer);
 unsigned long win32_getlasterror();
 }
 

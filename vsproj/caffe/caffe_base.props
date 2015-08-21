@@ -22,7 +22,7 @@
     <ClCompile />
     <ClCompile>
       <AdditionalIncludeDirectories>$(BOOST_DIR)include;$(CUDNN_DIR)include;$(GFLAGS_DIR)include;$(GLOG_DIR)include;$(HDF5_DIR)include;$(LEVELDB_DIR)include;$(LMDB_DIR)include;$(OPENCV_DIR)include;$(PROTOBUF_DIR)include;$(SNAPPY_DIR)include;$(GTEST_DIR)include;$(PYTHON_DIR)include;$(NUMPY_DIR)core\include;$(SolutionDir)posix_compatible;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>PROTOBUF_USE_DLLS;USE_CUDNN;USE_MKL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_RAND_S;PROTOBUF_USE_DLLS;USE_CUDNN;USE_MKL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>cublas.lib;curand.lib;%(AdditionalDependencies)</AdditionalDependencies>

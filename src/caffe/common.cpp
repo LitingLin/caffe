@@ -2,6 +2,7 @@
 #include <glog/logging.h>
 #include <cstdio>
 #include <ctime>
+#include <cstdlib>
 
 #include "caffe/common.hpp"
 #include "caffe/util/rng.hpp"
@@ -21,27 +22,27 @@ Caffe& Caffe::Get() {
 // random seeding
 int64_t cluster_seedgen(void) {
 #ifdef _MSC_VER
-  int64_t seed;
-  CHECK(win32_genrandom(sizeof(seed), &seed)) << "Random seed generation failed. Win32 error code: " << win32_getlasterror() << ".";
-  return seed;
+	int64_t seed;
+	if (!rand_s((uint32_t*)&seed) && !rand_s((uint32_t*)&seed + 1))
+		return seed;
 #else
-  int64_t s, seed, pid;
+  int64_t seed;
   FILE* f = fopen("/dev/urandom", "rb");
   if (f && fread(&seed, 1, sizeof(seed), f) == sizeof(seed)) {
     fclose(f);
     return seed;
   }
-
-  LOG(INFO) << "System entropy source not available, "
-              "using fallback algorithm to generate seed instead.";
   if (f)
     fclose(f);
+#endif
+  LOG(INFO) << "System entropy source not available, "
+              "using fallback algorithm to generate seed instead.";
 
+  int64_t s, pid;
   pid = getpid();
   s = time(NULL);
   seed = abs(((s * 181) * ((pid - 83) * 359)) % 104729);
   return seed;
-#endif
 }
 
 
