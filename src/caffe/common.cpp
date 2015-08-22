@@ -22,9 +22,9 @@ Caffe& Caffe::Get() {
 // random seeding
 int64_t cluster_seedgen(void) {
 #ifdef _MSC_VER
-	int64_t seed;
-	if (!rand_s((uint32_t*)&seed) && !rand_s((uint32_t*)&seed + 1))
-		return seed;
+  int64_t seed;
+  if (!rand_s((uint32_t*)&seed) && !rand_s((uint32_t*)&seed + 1))
+    return seed;
 #else
   int64_t seed;
   FILE* f = fopen("/dev/urandom", "rb");
