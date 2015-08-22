@@ -377,6 +377,9 @@
     <ClCompile Include="msvc_compatible.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="kernel_adaptation_layer.cpp">
+      <Filter>source\layers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="..\..\src\caffe\util\im2col.cu">
@@ -500,6 +503,9 @@
       <Filter>source\layers</Filter>
     </CudaCompile>
     <CudaCompile Include="..\..\src\caffe\layers\sigmoid_layer.cu">
+      <Filter>source\layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="kernel_adaptation_layer.cu">
       <Filter>source\layers</Filter>
     </CudaCompile>
   </ItemGroup>
