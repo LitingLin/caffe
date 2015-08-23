@@ -27,4 +27,4 @@ Other dependencies:
 - Protobuf
 - Snappy
 
-You can build these dependencies yourself, or simply download it from Google Drive (https://drive.google.com/file/d/0B-TUGY6fy2wgSEJYWDFfeHlES1k/view) or Baidu Yun (http://pan.baidu.com/s/1hqev0A4) and decompress it in this directory.
+You can build these dependencies by yourself, or simply download it from Google Drive (https://drive.google.com/file/d/0B-TUGY6fy2wgSEJYWDFfeHlES1k/view) or Baidu Yun (http://pan.baidu.com/s/1hqev0A4) and decompress it in this directory.
