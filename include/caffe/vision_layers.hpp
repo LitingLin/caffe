@@ -34,7 +34,6 @@ class CAFFE_EXPORT BaseConvolutionLayer : public Layer<Dtype> {
   virtual inline int MinTopBlobs() const { return 1; }
   virtual inline bool EqualNumBottomTopBlobs() const { return true; }
 
- protected:
   // Helper functions that abstract away the column buffer and gemm arguments.
   // The last argument in forward_cpu_gemm is so that we can skip the im2col if
   // we just called weight_cpu_gemm with the same input.
@@ -76,7 +75,6 @@ class CAFFE_EXPORT BaseConvolutionLayer : public Layer<Dtype> {
   bool bias_term_;
   bool is_1x1_;
 
- private:
   // wrap im2col/col2im so we don't have to remember the (long) argument lists
   inline void conv_im2col_cpu(const Dtype* data, Dtype* col_buff) {
     im2col_cpu(data, conv_in_channels_, conv_in_height_, conv_in_width_,
@@ -520,23 +518,29 @@ class CAFFE_EXPORT SPPLayer : public Layer<Dtype> {
 };
 
 template <typename Dtype>
-class CAFFE_EXPORT KernelAdaptationLayer : public Layer<Dtype>
+class CAFFE_EXPORT KernelAdaptationLayer : public BaseConvolutionLayer<Dtype>
 {
 public:
-	virtual inline int ExactNumTopBlobs() const override;
+	void LayerSetUp(const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) override;
+	void Reshape(const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) override;
+
+	virtual inline int ExactNumTopBlobs() const override { return 2; }
 	virtual inline const char* type() const override { return "KernelAdaptation"; }
-	virtual inline int ExactNumBottomBlobs() const override;
+	virtual inline int ExactNumBottomBlobs() const override { return 1; }
 
 	explicit KernelAdaptationLayer(const LayerParameter& param)
-		: Layer<Dtype>(param) {}
-
-	virtual void LayerSetUp(const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) override;
-	virtual void Reshape(const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) override;
+		: BaseConvolutionLayer<Dtype>(param) {}
 protected:
 	virtual void Forward_cpu(const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) override;
 	virtual void Backward_cpu(const vector<Blob<Dtype>*>& top, const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom) override;
-	void Forward_gpu(const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) override;
-	void Backward_gpu(const vector<Blob<Dtype>*>& top, const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom) override;
+	virtual void Forward_gpu(const vector<Blob<Dtype>*>& bottom, const vector<Blob<Dtype>*>& top) override;
+	virtual void Backward_gpu(const vector<Blob<Dtype>*>& top, const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom) override;
+	virtual inline bool reverse_dimensions()  { return false; }
+	virtual void compute_output_shape();
+
+	Blob<Dtype> true_kernel_;
+	int adaptation_kernel_h_;
+	int adaptation_kernel_w_;
 };
 
 }  // namespace caffe
