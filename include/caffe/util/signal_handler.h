@@ -6,7 +6,7 @@
 
 namespace caffe {
 
-class SignalHandler {
+class CAFFE_EXPORT SignalHandler {
  public:
   // Contructor. Specify what action to take when a signal is received.
   SignalHandler(SolverAction::Enum SIGINT_action,

@@ -135,6 +135,12 @@
     <ClInclude Include="..\..\include\caffe\msvc_compatible.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\caffe\util\signal_handler.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\caffe\util\gpu_util.cuh">
+      <Filter>include\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\caffe\blob.cpp">
@@ -376,6 +382,9 @@
     </ClCompile>
     <ClCompile Include="msvc_compatible.cpp">
       <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\caffe\util\signal_handler.cpp">
+      <Filter>source\util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
